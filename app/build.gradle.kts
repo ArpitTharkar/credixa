@@ -54,14 +54,12 @@ android {
                 "proguard-rules.pro"
             )
             signingConfig = signingConfigs.getByName("release")
-            // Use the LAN IP of your dev PC for local testing without USB.
-            // For production builds, replace with your public API URL.
-            buildConfigField("String", "SERVER_BASE_URL", "\"http://192.168.1.14:8081/api/\"")
+            // Production backend on Render.
+            buildConfigField("String", "SERVER_BASE_URL", "\"https://credixa-backend.onrender.com/api/\"")
         }
         debug {
-            // Debug builds: localhost on emulator (10.0.2.2) will be used automatically;
-            // set SERVER_BASE_URL for physical device testing over LAN.
-            buildConfigField("String", "SERVER_BASE_URL", "\"http://192.168.1.14:8081/api/\"")
+            // Use live backend for debug builds too.
+            buildConfigField("String", "SERVER_BASE_URL", "\"https://credixa-backend.onrender.com/api/\"")
         }
     }
     compileOptions {
