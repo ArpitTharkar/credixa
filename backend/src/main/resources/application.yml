@@ -1,16 +1,18 @@
 spring:
   datasource:
-    url: ${DB_URL:jdbc:mysql://localhost:3306/myappdb}
+    url: ${DB_URL:jdbc:mysql://localhost:3306/myappdb?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC}
     username: ${DB_USER:root}
     password: ${DB_PASSWORD:password}
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
       ddl-auto: update
+      dialect: org.hibernate.dialect.MySQL8Dialect
     show-sql: ${SHOW_SQL:false}
     properties:
       hibernate:
         format_sql: true
+        use_sql_comments: true
 
 server:
   port: ${PORT:8081}
