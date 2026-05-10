@@ -48,6 +48,9 @@ exec java \
     -Dspring.datasource.url="$DB_URL" \
     -Dspring.datasource.username="$DB_USER" \
     -Dspring.datasource.password="$DB_PASSWORD" \
+    -Dspring.jpa.database-platform=org.hibernate.dialect.MySQLDialect \
+    -Dspring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQLDialect \
+    -Djakarta.persistence.jdbc.url="$DB_URL" \
     -Dspring.profiles.active=$SPRING_PROFILES_ACTIVE \
     -Dspring.jpa.show-sql=$SHOW_SQL \
     -jar /app/app.jar
