@@ -1,0 +1,4 @@
+# Copy this to local.properties and fill with real values (DO NOT commit real secrets)
+RELEASE_STORE_PASSWORD=changeit
+RELEASE_KEY_ALIAS=mykey
+RELEASE_KEY_PASSWORD=changeit

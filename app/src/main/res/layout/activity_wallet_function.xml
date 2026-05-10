@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Wallet Functions"
+            android:textSize="24sp"
+            android:layout_gravity="center_horizontal"
+            android:paddingBottom="12dp" />
+        <!-- Balance and transactions moved to separate pages -->
+        <Button
+            android:id="@+id/buttonCheckBalance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Check Balance"
+            android:layout_marginTop="8dp" />
+
+        <Button
+            android:id="@+id/buttonAddMoney"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add Money"
+            android:layout_marginTop="8dp" />
+
+        <Button
+            android:id="@+id/buttonTransaction"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Transaction"
+            android:layout_marginTop="8dp" />
+
+        <Button
+            android:id="@+id/buttonSendMoney"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Send Money"
+            android:layout_marginTop="8dp" />
+
+        <!-- Transaction list removed from this page; opens Transactions page instead -->
+
+    </LinearLayout>
+
+</ScrollView>
