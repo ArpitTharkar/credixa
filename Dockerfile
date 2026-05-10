@@ -19,9 +19,14 @@ RUN sed -i 's/\r$//' gradlew \
 FROM eclipse-temurin:17-jre
 WORKDIR /app
 
+# Copy the entrypoint script
+COPY backend/docker-entrypoint.sh /app/entrypoint.sh
+RUN chmod +x /app/entrypoint.sh
+
+# Copy the built Spring Boot JAR
 COPY --from=build /workspace/backend/build/libs/*.jar /app/app.jar
 
 EXPOSE 8080
 
-# Pass environment variables to Spring Boot via system properties
-ENTRYPOINT ["sh", "-c", "java -Dserver.port=${PORT:-8080} -Dspring.datasource.url=${DB_URL} -Dspring.datasource.username=${DB_USER} -Dspring.datasource.password=${DB_PASSWORD} -Dspring.profiles.active=${SPRING_PROFILES_ACTIVE:-prod} -jar /app/app.jar"]
+# Use startup script to validate env vars and start Spring Boot
+ENTRYPOINT ["/app/entrypoint.sh"]

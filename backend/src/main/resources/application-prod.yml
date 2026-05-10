@@ -7,10 +7,12 @@ spring:
     hikari:
       maximum-pool-size: 10
       minimum-idle: 2
-      connection-timeout: 30000
+      connection-timeout: 60000
+      idle-timeout: 600000
+      max-lifetime: 1800000
   jpa:
     hibernate:
-      ddl-auto: validate
+      ddl-auto: update
       dialect: org.hibernate.dialect.MySQL8Dialect
     show-sql: false
     properties:
@@ -29,5 +31,8 @@ server:
 
 logging:
   level:
-    root: WARN
-    com.arpit: INFO
+    root: INFO
+    com.arpit: DEBUG
+    org.springframework.boot: INFO
+    org.hibernate.engine.transaction.internal.TransactionImpl: DEBUG
+    org.hibernate.SQL: DEBUG
