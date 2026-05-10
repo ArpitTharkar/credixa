@@ -11,7 +11,10 @@ COPY gradle gradle
 COPY settings.gradle.kts build.gradle.kts gradle.properties ./
 COPY backend backend
 
-RUN sed -i 's/\r$//' gradlew && chmod +x gradlew && ./gradlew :backend:bootJar --no-daemon
+RUN sed -i 's/\r$//' gradlew \
+	&& sed -i '/^org\.gradle\.java\.home=/d' gradle.properties \
+	&& chmod +x gradlew \
+	&& ./gradlew :backend:bootJar --no-daemon
 
 FROM eclipse-temurin:17-jre
 WORKDIR /app
