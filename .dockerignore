@@ -1,0 +1,11 @@
+.git
+.gitignore
+.github
+.idea
+.gradle
+build
+app
+**/build
+**/.gradle
+local.properties
+*.iml
