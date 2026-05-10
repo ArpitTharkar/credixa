@@ -23,6 +23,10 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "My Application"
-include(":app")
+
+// Only include app for local development; backend is deployed separately to Render
+if (!System.getenv("RENDER").toBoolean()) {
+    include(":app")
+}
 include(":backend")
  

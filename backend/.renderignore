@@ -1,0 +1,6 @@
+# Ignore Android app when deploying backend
+app/
+*.iml
+.idea/
+.gradle/
+.DS_Store
