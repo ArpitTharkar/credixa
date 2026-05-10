@@ -9,11 +9,16 @@ echo "=========================================="
 echo "Wallet Backend Startup"
 echo "=========================================="
 
+# Build DB_URL from Railway-style variables when DB_URL is not explicitly provided.
+if [ -z "$DB_URL" ] && [ -n "$MYSQLHOST" ] && [ -n "$MYSQLPORT" ] && [ -n "$MYSQLDATABASE" ]; then
+    DB_URL="jdbc:mysql://$MYSQLHOST:$MYSQLPORT/$MYSQLDATABASE?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC"
+fi
+
 # Check if required environment variables are set
 if [ -z "$DB_URL" ]; then
     echo "ERROR: DB_URL environment variable not set!"
     echo "Please set DB_URL in Render environment variables."
-    echo "Example: jdbc:mysql://mysql.railway.internal:3306/railway?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC"
+    echo "Example: jdbc:mysql://viaduct.proxy.rlwy.net:13943/railway?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC"
     exit 1
 fi
 
