@@ -5,40 +5,43 @@
 **CRITICAL:** Set these exact environment variables in the Render dashboard (Settings → Environment):
 
 ```
-DB_URL=jdbc:mysql://mysql.railway.internal:3306/railway?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+DB_URL=jdbc:mysql://viaduct.proxy.rlwy.net:13943/railway?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
 DB_USER=root
 DB_PASSWORD=<your-railway-password>
 PORT=8080
 SPRING_PROFILES_ACTIVE=prod
 ```
 
+Use Railway public values for Render deployments.
+Do not use `mysql.railway.internal` or port `3306` from another platform.
+
 ### Finding Railway MySQL Credentials
 
 1. Go to Railway Dashboard → Your Project → MySQL service
 2. Click the MySQL service card
-3. In Variables tab, you'll see:
-   - `MYSQLHOST`: Use as part of DB_URL (e.g., `mysql.railway.internal`)
-   - `MYSQLDATABASE`: Use in DB_URL (e.g., `/railway`)
+3. In Variables tab, use public connection values for external platforms:
+   - `MYSQL_PUBLIC_HOST` or public host shown by Railway (e.g., `viaduct.proxy.rlwy.net`)
+   - `MYSQLDATABASE` (e.g., `railway`)
    - `MYSQLUSER`: Set as `DB_USER`
    - `MYSQLPASSWORD`: Set as `DB_PASSWORD`
-   - `MYSQLPORT`: Should be 3306
+   - Public port shown by Railway (e.g., `13943`)
 
 ### Example Railway Connection
 
-If Railway shows:
+If Railway shows public values similar to:
 ```
-MYSQLHOST=mysql.railway.internal
-MYSQLPORT=3306
+HOST=viaduct.proxy.rlwy.net
+PORT=13943
 MYSQLDATABASE=railway
 MYSQLUSER=root
-MYSQLPASSWORD=UUFdYWpRjlPMkyVFMJfpQtObRarZXgOJ
+MYSQLPASSWORD=<your-password>
 ```
 
 Then in Render set:
 ```
-DB_URL=jdbc:mysql://mysql.railway.internal:3306/railway?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+DB_URL=jdbc:mysql://viaduct.proxy.rlwy.net:13943/railway?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
 DB_USER=root
-DB_PASSWORD=UUFdYWpRjlPMkyVFMJfpQtObRarZXgOJ
+DB_PASSWORD=<your-password>
 ```
 
 ## Deployment Steps
