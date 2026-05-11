@@ -14,8 +14,8 @@ public class WalletViewModel extends AndroidViewModel {
     private final WalletRepository walletRepo;
     private final UserRepository userRepo;
 
-    // Balance
-    private final MutableLiveData<Long> _balance = new MutableLiveData<>(0L);
+    // Balance (null = loading/unknown, value = loaded)
+    private final MutableLiveData<Long> _balance = new MutableLiveData<>(null);
     public final LiveData<Long> balance = _balance;
 
     // Transactions

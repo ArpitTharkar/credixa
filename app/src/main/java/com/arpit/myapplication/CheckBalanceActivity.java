@@ -19,10 +19,15 @@ public class CheckBalanceActivity extends AppCompatActivity {
         textViewBalance = findViewById(R.id.textViewBalancePage);
 
         // Observe balance LiveData
-        walletViewModel.balance.observe(this, bal ->
-                textViewBalance.setText("Balance: ₹" + bal)
-        );
+        walletViewModel.balance.observe(this, bal -> {
+            if (bal == null) {
+                textViewBalance.setText("Loading...");
+            } else {
+                textViewBalance.setText("Balance: ₹" + bal);
+            }
+        });
 
+        textViewBalance.setText("Loading...");
         walletViewModel.refreshBalance();
     }
 

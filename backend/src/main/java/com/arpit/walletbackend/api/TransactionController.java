@@ -4,6 +4,7 @@ import com.arpit.walletbackend.tx.WalletTransaction;
 import com.arpit.walletbackend.wallet.WalletService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -11,6 +12,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
+@RequestMapping("/transactions")
 public class TransactionController {
 
     private final WalletService walletService;
@@ -19,7 +21,7 @@ public class TransactionController {
         this.walletService = walletService;
     }
 
-    @GetMapping("/api/transactions")
+    @GetMapping
     public ResponseEntity<List<TransactionView>> history(@RequestParam("userId") Long userId) {
         List<WalletTransaction> list = walletService.historyForUser(userId);
         List<TransactionView> view = list.stream()
