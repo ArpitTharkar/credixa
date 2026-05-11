@@ -9,7 +9,7 @@ import java.math.BigDecimal;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/api/wallet")
+@RequestMapping("/wallet")
 public class WalletController {
 
     private final WalletService walletService;
