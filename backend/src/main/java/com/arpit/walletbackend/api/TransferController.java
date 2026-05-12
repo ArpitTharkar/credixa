@@ -17,7 +17,7 @@ public class TransferController {
         this.walletService = walletService;
     }
 
-    @PostMapping("/api/transfer")
+    @PostMapping("/transfer")
     public ResponseEntity<?> transfer(@RequestBody Map<String, Object> body) {
         Long sender = Long.valueOf(body.get("senderUserId").toString());
         Long receiver = Long.valueOf(body.get("receiverUserId").toString());
