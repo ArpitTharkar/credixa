@@ -2,12 +2,14 @@ package com.arpit.myapplication;
 
 import android.os.Bundle;
 import android.view.View;
+import android.content.Intent;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.RadioGroup;
 import android.widget.RadioButton;
 import android.widget.EditText;
 import android.text.InputType;
+import android.widget.ImageButton;
 import androidx.appcompat.app.AlertDialog;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -30,6 +32,12 @@ public class TrackingActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tracking);
+
+        ImageButton btnBack = findViewById(R.id.buttonBack);
+        btnBack.setOnClickListener(v -> {
+            startActivity(new Intent(this, DashboardActivity.class));
+            finish();
+        });
 
         walletViewModel = new ViewModelProvider(this).get(WalletViewModel.class);
         container = findViewById(R.id.trackingContainer);

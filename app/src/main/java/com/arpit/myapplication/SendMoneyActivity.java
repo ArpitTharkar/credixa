@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,6 +27,13 @@ public class SendMoneyActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_send_money);
+
+        ImageButton btnBack = findViewById(R.id.buttonBack);
+        btnBack.setOnClickListener(v -> {
+            Intent i = new Intent(this, WalletFunctionActivity.class);
+            startActivity(i);
+            finish();
+        });
 
         walletViewModel = new ViewModelProvider(this).get(WalletViewModel.class);
 

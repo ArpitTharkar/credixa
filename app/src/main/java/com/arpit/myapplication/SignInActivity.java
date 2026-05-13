@@ -3,6 +3,7 @@ package com.arpit.myapplication;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -47,6 +48,12 @@ public class SignInActivity extends AppCompatActivity {
         btnSendOtp = findViewById(R.id.buttonSendOtp);
         btnRegister = findViewById(R.id.buttonRegister);
         btnGoToLogin = (TextView) findViewById(R.id.buttonGoToLogin);
+        ImageButton btnBack = findViewById(R.id.buttonBack);
+
+        btnBack.setOnClickListener(v -> {
+            startActivity(new Intent(this, LoginActivity.class));
+            finish();
+        });
 
         btnGoToLogin.setOnClickListener(v -> {
             startActivity(new Intent(this, LoginActivity.class));

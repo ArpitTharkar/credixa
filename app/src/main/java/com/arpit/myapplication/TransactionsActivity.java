@@ -1,8 +1,10 @@
 package com.arpit.myapplication;
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -21,6 +23,13 @@ public class TransactionsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_transactions);
+
+        ImageButton btnBack = findViewById(R.id.buttonBack);
+        btnBack.setOnClickListener(v -> {
+            Intent i = new Intent(this, WalletFunctionActivity.class);
+            startActivity(i);
+            finish();
+        });
 
         walletViewModel = new ViewModelProvider(this).get(WalletViewModel.class);
         container = findViewById(R.id.transactionsContainer);

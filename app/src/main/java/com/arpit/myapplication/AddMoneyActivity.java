@@ -1,9 +1,11 @@
 package com.arpit.myapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.InputType;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,6 +20,13 @@ public class AddMoneyActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_money);
+
+        ImageButton btnBack = findViewById(R.id.buttonBack);
+        btnBack.setOnClickListener(v -> {
+            Intent i = new Intent(this, WalletFunctionActivity.class);
+            startActivity(i);
+            finish();
+        });
 
         walletViewModel = new ViewModelProvider(this).get(WalletViewModel.class);
 

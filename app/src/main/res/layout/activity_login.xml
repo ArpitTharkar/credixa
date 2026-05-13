@@ -1,52 +1,191 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/login_background">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="16dp"
+        android:paddingTop="80dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Login"
-            android:textSize="24sp"
-            android:layout_gravity="center_horizontal"
-            android:paddingBottom="12dp" />
+        <ImageButton
+            android:id="@+id/buttonBack"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginBottom="12dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@android:drawable/ic_menu_revert"
+            android:contentDescription="Back"
+            android:tint="#FFFFFF" />
 
-        <EditText
-            android:id="@+id/editTextLoginUsername"
+        <!-- Centered card container -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="User ID"
-            android:inputType="text" />
+            android:gravity="center"
+            android:paddingTop="8dp">
 
-        <EditText
-            android:id="@+id/editTextLoginPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Password"
-            android:inputType="textPassword"
-            android:layout_marginTop="8dp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:orientation="vertical"
+                android:background="@drawable/white_card_background"
+                android:padding="24dp"
+                android:elevation="8dp">
 
-        <Button
-            android:id="@+id/buttonLogin"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Login"
-            android:layout_marginTop="16dp" />
+                <ImageView
+                    android:layout_width="120dp"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/ic_payment_header"
+                    android:contentDescription="Header illustration" />
 
-        <TextView
-            android:id="@+id/textViewForgot"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="New here? Register"
-            android:textColor="?attr/colorPrimary"
-            android:layout_marginTop="12dp"
-            android:layout_gravity="center_horizontal" />
+                <ImageView
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@mipmap/credixa_logo"
+                    android:contentDescription="App logo"
+                    android:layout_marginTop="8dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Credixa"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="8dp"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="#6C4DFF"
+                    android:fontFamily="sans-serif-medium" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Secure payments, simplified"
+                    android:textSize="12sp"
+                    android:layout_marginTop="4dp"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="#7A7A7A"
+                    android:fontFamily="sans-serif-light" />
+
+                <EditText
+                    android:id="@+id/editTextLoginUsername"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="User ID"
+                    android:inputType="text"
+                    android:layout_marginTop="16dp"
+                    android:padding="12dp"
+                    android:background="@drawable/edittext_background_selector"
+                    android:importantForAutofill="no" />
+
+                <EditText
+                    android:id="@+id/editTextLoginPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Password"
+                    android:inputType="textPassword"
+                    android:layout_marginTop="8dp"
+                    android:padding="12dp"
+                    android:background="@drawable/edittext_background_selector" />
+
+                <Button
+                    android:id="@+id/buttonLogin"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:text="🔒 Secure Login"
+                    android:layout_marginTop="16dp"
+                    android:textColor="#FFFFFF"
+                    android:background="@drawable/button_gradient"
+                    android:elevation="6dp"
+                    android:textAllCaps="false"
+                    android:drawablePadding="8dp" />
+
+                <TextView
+                    android:id="@+id/textViewForgot"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="New here? Register"
+                    android:textColor="?attr/colorPrimary"
+                    android:layout_marginTop="12dp"
+                    android:layout_gravity="center_horizontal" />
+
+                <!-- Feature row -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="16dp"
+                    android:gravity="center">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginEnd="16dp">
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:src="@drawable/ic_feature_secure"
+                            android:contentDescription="Secure" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Secure Banking"
+                            android:textSize="12sp"
+                            android:layout_marginStart="6dp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginEnd="16dp">
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:src="@drawable/ic_feature_encryption"
+                            android:contentDescription="Encryption" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="256-bit Encryption"
+                            android:textSize="12sp"
+                            android:layout_marginStart="6dp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:src="@drawable/ic_feature_trusted"
+                            android:contentDescription="Trusted" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Trusted Payments"
+                            android:textSize="12sp"
+                            android:layout_marginStart="6dp" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Bottom illustration removed (use single app logo on card) -->
 
     </LinearLayout>
 

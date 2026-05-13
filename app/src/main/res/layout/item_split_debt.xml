@@ -3,9 +3,11 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="8dp"
+    
     android:layout_marginBottom="8dp"
-    android:background="#F7F7F7">
+    android:background="@drawable/white_card_background"
+    android:padding="12dp"
+    android:elevation="2dp">
 
     <TextView
         android:id="@+id/textViewDebtMain"
@@ -32,23 +34,34 @@
         <Button
             android:id="@+id/buttonMarkPaid"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_weight="1"
-            android:text="Mark Paid" />
+            android:text="Mark Paid"
+            android:background="@drawable/button_gradient"
+            android:textColor="#FFFFFF"
+            android:textAllCaps="false" />
 
         <Button
             android:id="@+id/buttonReminder"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_weight="1"
-            android:text="Send Reminder" />
+            android:text="Send Reminder"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/button_gradient"
+            android:textColor="#FFFFFF"
+            android:textAllCaps="false" />
 
         <Button
             android:id="@+id/buttonPay"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_weight="1"
-            android:text="Pay" />
+            android:text="Pay"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/button_gradient"
+            android:textColor="#FFFFFF"
+            android:textAllCaps="false" />
     </LinearLayout>
 
 </LinearLayout>

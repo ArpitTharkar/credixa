@@ -3,6 +3,7 @@ package com.arpit.myapplication;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.ImageButton;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class WalletFunctionActivity extends AppCompatActivity {
@@ -12,6 +13,12 @@ public class WalletFunctionActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wallet_function);
+
+        ImageButton btnBack = findViewById(R.id.buttonBack);
+        btnBack.setOnClickListener(v -> {
+            startActivity(new Intent(this, DashboardActivity.class));
+            finish();
+        });
 
         btnCheckBalance = findViewById(R.id.buttonCheckBalance);
         btnAddMoney = findViewById(R.id.buttonAddMoney);

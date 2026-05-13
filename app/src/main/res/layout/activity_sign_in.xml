@@ -1,99 +1,155 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/login_background">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="16dp"
+        android:paddingTop="80dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Sign Up with OTP"
-            android:textSize="24sp"
-            android:layout_gravity="center_horizontal"
-            android:paddingBottom="12dp" />
+        <ImageButton
+            android:id="@+id/buttonBack"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginBottom="12dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@android:drawable/ic_menu_revert"
+            android:contentDescription="Back"
+            android:tint="#FFFFFF" />
 
-        <EditText
-            android:id="@+id/editTextSignUsername"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="User ID"
-            android:inputType="text" />
-
-        <EditText
-            android:id="@+id/editTextSignEmail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Email"
-            android:inputType="textEmailAddress"
-            android:layout_marginTop="8dp" />
-
-        <EditText
-            android:id="@+id/editTextSignAge"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Age"
-            android:inputType="number"
-            android:layout_marginTop="8dp" />
-
-        <EditText
-            android:id="@+id/editTextSignPhone"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Phone (+91XXXXXXXXXX)"
-            android:inputType="phone"
-            android:layout_marginTop="8dp" />
-
-        <Button
-            android:id="@+id/buttonSendOtp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Send OTP"
-            android:layout_marginTop="12dp" />
-
-        <EditText
-            android:id="@+id/editTextSignOtp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Enter OTP"
-            android:inputType="number"
-            android:layout_marginTop="8dp" />
-
-        <EditText
-            android:id="@+id/editTextSignPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Password (min 6 characters)"
-            android:inputType="textPassword"
-            android:layout_marginTop="8dp" />
-
-        <EditText
-            android:id="@+id/editTextSignRePassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Confirm Password"
-            android:inputType="textPassword"
-            android:layout_marginTop="8dp" />
-
-        <Button
-            android:id="@+id/buttonRegister"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Verify OTP and Register"
-            android:layout_marginTop="16dp" />
-
-        <TextView
-            android:id="@+id/buttonGoToLogin"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Already registered? Log in"
-            android:textColor="?attr/colorPrimary"
             android:gravity="center"
-            android:layout_marginTop="12dp" />
+            android:paddingTop="8dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:orientation="vertical"
+                android:background="@drawable/white_card_background"
+                android:padding="24dp"
+                android:elevation="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sign Up with OTP"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="#6C4DFF"
+                    android:fontFamily="sans-serif-medium" />
+
+                <EditText
+                    android:id="@+id/editTextSignUsername"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="User ID"
+                    android:inputType="text"
+                    android:layout_marginTop="12dp"
+                    android:padding="12dp"
+                    android:background="@drawable/edittext_background_selector" />
+
+                <EditText
+                    android:id="@+id/editTextSignEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Email"
+                    android:inputType="textEmailAddress"
+                    android:layout_marginTop="8dp"
+                    android:padding="12dp"
+                    android:background="@drawable/edittext_background_selector" />
+
+                <EditText
+                    android:id="@+id/editTextSignAge"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Age"
+                    android:inputType="number"
+                    android:layout_marginTop="8dp"
+                    android:padding="12dp"
+                    android:background="@drawable/edittext_background_selector" />
+
+                <EditText
+                    android:id="@+id/editTextSignPhone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Phone (+91XXXXXXXXXX)"
+                    android:inputType="phone"
+                    android:layout_marginTop="8dp"
+                    android:padding="12dp"
+                    android:background="@drawable/edittext_background_selector" />
+
+                <Button
+                    android:id="@+id/buttonSendOtp"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:text="Send OTP"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/button_gradient"
+                    android:textColor="#FFFFFF"
+                    android:textAllCaps="false"
+                    android:elevation="4dp" />
+
+                <EditText
+                    android:id="@+id/editTextSignOtp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Enter OTP"
+                    android:inputType="number"
+                    android:layout_marginTop="8dp"
+                    android:padding="12dp"
+                    android:background="@drawable/edittext_background_selector" />
+
+                <EditText
+                    android:id="@+id/editTextSignPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Password (min 6 characters)"
+                    android:inputType="textPassword"
+                    android:layout_marginTop="8dp"
+                    android:padding="12dp"
+                    android:background="@drawable/edittext_background_selector" />
+
+                <EditText
+                    android:id="@+id/editTextSignRePassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Confirm Password"
+                    android:inputType="textPassword"
+                    android:layout_marginTop="8dp"
+                    android:padding="12dp"
+                    android:background="@drawable/edittext_background_selector" />
+
+                <Button
+                    android:id="@+id/buttonRegister"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:text="Verify OTP and Register"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/button_gradient"
+                    android:textColor="#FFFFFF"
+                    android:textAllCaps="false"
+                    android:elevation="6dp" />
+
+                <TextView
+                    android:id="@+id/buttonGoToLogin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Already registered? Log in"
+                    android:textColor="?attr/colorPrimary"
+                    android:gravity="center"
+                    android:layout_marginTop="12dp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
 
     </LinearLayout>
 

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -65,6 +66,14 @@ public class PaymentResultActivity extends AppCompatActivity {
             Intent intent = new Intent(this, DashboardActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
             startActivity(intent);
+            finish();
+        });
+
+        // Back (top-left) → go to WalletFunctionActivity
+        ImageButton btnBack = findViewById(R.id.buttonBack);
+        btnBack.setOnClickListener(v -> {
+            Intent i = new Intent(this, WalletFunctionActivity.class);
+            startActivity(i);
             finish();
         });
     }

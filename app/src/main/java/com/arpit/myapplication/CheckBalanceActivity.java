@@ -1,6 +1,8 @@
 package com.arpit.myapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,6 +16,13 @@ public class CheckBalanceActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_check_balance);
+
+        ImageButton btnBack = findViewById(R.id.buttonBack);
+        btnBack.setOnClickListener(v -> {
+            Intent i = new Intent(this, WalletFunctionActivity.class);
+            startActivity(i);
+            finish();
+        });
 
         walletViewModel = new ViewModelProvider(this).get(WalletViewModel.class);
         textViewBalance = findViewById(R.id.textViewBalancePage);

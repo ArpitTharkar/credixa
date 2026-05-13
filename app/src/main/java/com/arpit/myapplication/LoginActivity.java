@@ -3,6 +3,7 @@ package com.arpit.myapplication;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -38,12 +39,17 @@ public class LoginActivity extends AppCompatActivity {
         etUserId = findViewById(R.id.editTextLoginUsername);
         etPassword = findViewById(R.id.editTextLoginPassword);
         btnLogin = findViewById(R.id.buttonLogin);
+        ImageButton btnBack = findViewById(R.id.buttonBack);
         TextView tvForgot = findViewById(R.id.textViewForgot);
 
         userRepo = new UserRepository(this);
         backendApi = ApiClient.backendApi();
 
         btnLogin.setOnClickListener(v -> loginWithBackend());
+
+        btnBack.setOnClickListener(v -> {
+            finishAffinity();
+        });
 
         tvForgot.setOnClickListener(v -> {
             startActivity(new Intent(this, SignInActivity.class));
