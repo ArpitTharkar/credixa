@@ -1,75 +1,167 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/login_background">
+    android:background="@color/fin_bg"
+    android:fillViewport="true">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="16dp"
-        android:paddingTop="80dp">
-
-        <ImageButton
-            android:id="@+id/buttonBack"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginBottom="12dp"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:src="@android:drawable/ic_menu_revert"
-            android:contentDescription="Back"
-            android:tint="#FFFFFF" />
+        android:paddingStart="16dp"
+        android:paddingTop="56dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="24dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:paddingTop="8dp">
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/buttonBack"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Back"
+                android:src="@drawable/ic_chevron_left"
+                app:tint="@color/fin_text" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="Add money"
+                android:textColor="@color/fin_text"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bg_card"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Add to wallet"
+                android:textColor="@color/fin_text_dim"
+                android:textSize="15sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:orientation="vertical"
-                android:background="@drawable/white_card_background"
-                android:padding="24dp"
-                android:elevation="8dp">
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Add Money"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:layout_gravity="center_horizontal"
-                    android:textColor="#6C4DFF"
-                    android:fontFamily="sans-serif-medium" />
+                    android:text="₹"
+                    android:textColor="@color/fin_text"
+                    android:textSize="44sp"
+                    android:textStyle="bold" />
 
                 <EditText
                     android:id="@+id/editTextAddAmount"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:hint="Enter amount (e.g., 500)"
-                    android:layout_marginTop="12dp"
-                    android:padding="12dp"
-                    android:background="@drawable/edittext_background_selector" />
-
-                <Button
-                    android:id="@+id/buttonConfirmAdd"
-                    android:layout_width="match_parent"
-                    android:layout_height="44dp"
-                    android:text="Confirm"
-                    android:layout_marginTop="12dp"
-                    android:background="@drawable/button_gradient"
-                    android:textColor="#FFFFFF"
-                    android:textAllCaps="false"
-                    android:elevation="4dp" />
-
+                    android:background="@null"
+                    android:hint="0"
+                    android:inputType="number"
+                    android:minWidth="80dp"
+                    android:paddingStart="8dp"
+                    android:textColor="@color/fin_text"
+                    android:textColorHint="@color/fin_text_dim"
+                    android:textSize="52sp"
+                    android:textStyle="bold" />
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/chipAdd100"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="0dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_chip"
+                android:gravity="center"
+                android:paddingTop="12dp"
+                android:paddingBottom="12dp"
+                android:text="+₹100"
+                android:textColor="@color/fin_text"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/chipAdd500"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_chip"
+                android:gravity="center"
+                android:paddingTop="12dp"
+                android:paddingBottom="12dp"
+                android:text="+₹500"
+                android:textColor="@color/fin_text"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/chipAdd1000"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_chip"
+                android:gravity="center"
+                android:paddingTop="12dp"
+                android:paddingBottom="12dp"
+                android:text="+₹1000"
+                android:textColor="@color/fin_text"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/chipAdd2000"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_chip"
+                android:gravity="center"
+                android:paddingTop="12dp"
+                android:paddingBottom="12dp"
+                android:text="+₹2000"
+                android:textColor="@color/fin_text"
+                android:textSize="16sp" />
+
+            </LinearLayout>
         </LinearLayout>
 
-    </LinearLayout>
+        <Button
+            android:id="@+id/buttonConfirmAdd"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/bg_button_blue"
+            android:text="Add money"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="19sp"
+            android:textStyle="bold" />
 
+    </LinearLayout>
 </ScrollView>

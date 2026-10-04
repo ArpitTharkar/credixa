@@ -89,7 +89,7 @@ public class LoginActivity extends AppCompatActivity {
                 userRepo.setCurrentUser(body.getPhone());
                 userRepo.addUser(body.getPhone(), body.getPhone());
 
-                startActivity(new Intent(LoginActivity.this, DashboardActivity.class));
+                startActivity(new Intent(LoginActivity.this, FinanceActivity.class));
                 finish();
             }
 

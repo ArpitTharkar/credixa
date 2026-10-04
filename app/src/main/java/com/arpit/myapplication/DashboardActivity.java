@@ -18,7 +18,6 @@ public class DashboardActivity extends AppCompatActivity {
 
         ImageButton btnBack = findViewById(R.id.buttonBack);
         btnBack.setOnClickListener(v -> {
-            startActivity(new Intent(this, LoginActivity.class));
             finish();
         });
 

@@ -62,7 +62,7 @@
             android:layout_height="wrap_content"
             android:text=""
             android:textSize="12sp"
-            android:textColor="#666666"
+            android:textColor="#9B9BA1"
             android:layout_marginTop="4dp" />
 
         <LinearLayout
@@ -111,7 +111,7 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginTop="12dp"
-            android:background="#E0E0E0" />
+            android:background="#2E2E32" />
 
         <LinearLayout
             android:id="@+id/resultContainer"

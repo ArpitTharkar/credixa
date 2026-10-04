@@ -19,8 +19,6 @@ public class CheckBalanceActivity extends AppCompatActivity {
 
         ImageButton btnBack = findViewById(R.id.buttonBack);
         btnBack.setOnClickListener(v -> {
-            Intent i = new Intent(this, WalletFunctionActivity.class);
-            startActivity(i);
             finish();
         });
 
@@ -32,7 +30,7 @@ public class CheckBalanceActivity extends AppCompatActivity {
             if (bal == null) {
                 textViewBalance.setText("Loading...");
             } else {
-                textViewBalance.setText("Balance: ₹" + bal);
+                textViewBalance.setText("₹" + bal);
             }
         });
 

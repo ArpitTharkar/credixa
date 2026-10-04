@@ -28,6 +28,7 @@
         </activity>
         <activity android:name=".LoginActivity" android:exported="true" />
         <activity android:name=".SignInActivity" android:exported="true" />
+        <activity android:name=".FinanceActivity" android:exported="false" />
         <activity android:name=".DashboardActivity" android:exported="true" />
         <activity android:name=".WalletFunctionActivity" android:exported="true" />
         <activity android:name=".CheckBalanceActivity" android:exported="true" />
