@@ -39,14 +39,14 @@ public class PaymentResultActivity extends AppCompatActivity {
 
         if (success) {
             iconView.setText("✔");
-            iconView.setTextColor(0xFF4CAF50);
-            titleView.setText("Payment Successful");
-            titleView.setTextColor(0xFF4CAF50);
+            iconView.setBackgroundResource(R.drawable.bg_circle_success);
+            titleView.setText("Payment successful");
+            titleView.setTextColor(getColor(R.color.fin_green_text));
         } else {
             iconView.setText("✗");
-            iconView.setTextColor(0xFFF44336);
-            titleView.setText("Payment Failed");
-            titleView.setTextColor(0xFFF44336);
+            iconView.setBackgroundResource(R.drawable.bg_circle_fail);
+            titleView.setText("Payment failed");
+            titleView.setTextColor(getColor(R.color.fin_red));
         }
 
         amountView.setText("₹" + amount);
@@ -63,7 +63,7 @@ public class PaymentResultActivity extends AppCompatActivity {
 
         // Done → go back to Dashboard, clear stack above it
         btnDone.setOnClickListener(v -> {
-            Intent intent = new Intent(this, DashboardActivity.class);
+            Intent intent = new Intent(this, FinanceActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
             startActivity(intent);
             finish();
@@ -72,8 +72,6 @@ public class PaymentResultActivity extends AppCompatActivity {
         // Back (top-left) → go to WalletFunctionActivity
         ImageButton btnBack = findViewById(R.id.buttonBack);
         btnBack.setOnClickListener(v -> {
-            Intent i = new Intent(this, WalletFunctionActivity.class);
-            startActivity(i);
             finish();
         });
     }

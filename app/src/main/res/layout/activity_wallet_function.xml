@@ -17,7 +17,7 @@
             android:layout_height="40dp"
             android:layout_marginBottom="12dp"
             android:background="?attr/selectableItemBackgroundBorderless"
-            android:src="@android:drawable/ic_menu_revert"
+            android:src="@drawable/ic_chevron_left"
             android:contentDescription="Back"
             android:tint="#FFFFFF" />
 
@@ -37,7 +37,7 @@
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:layout_gravity="center_horizontal"
-                android:textColor="#6C4DFF"
+                android:textColor="#3B82E6"
                 android:fontFamily="sans-serif-medium" />
 
             <Button

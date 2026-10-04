@@ -177,7 +177,7 @@ public class SignInActivity extends AppCompatActivity {
                 userRepo.addUser(body.getPhone(), body.getPhone());
 
                 Toast.makeText(SignInActivity.this, "Registered successfully!", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(SignInActivity.this, DashboardActivity.class));
+                startActivity(new Intent(SignInActivity.this, FinanceActivity.class));
                 finish();
             }
 

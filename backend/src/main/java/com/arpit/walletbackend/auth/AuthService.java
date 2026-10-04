@@ -15,10 +15,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.math.BigDecimal;
-import java.time.Instant;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ThreadLocalRandom;
 
 @Service
 public class AuthService {
@@ -26,18 +22,8 @@ public class AuthService {
     private final AppUserRepository appUserRepository;
     private final WalletAccountRepository walletAccountRepository;
     private final BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-    private final Map<String, OtpEntry> otpStore = new ConcurrentHashMap<>();
-
-    private static class OtpEntry {
-        private final String otp;
-        private final long expiresAtEpochSec;
-
-        private OtpEntry(String otp, long expiresAtEpochSec) {
-            this.otp = otp;
-            this.expiresAtEpochSec = expiresAtEpochSec;
-        }
-    }
-
+    /** Demo mode: every registration accepts this fixed OTP (no SMS provider). */
+    private static final String DEMO_OTP = "123456";
     public AuthService(AppUserRepository appUserRepository, WalletAccountRepository walletAccountRepository) {
         this.appUserRepository = appUserRepository;
         this.walletAccountRepository = walletAccountRepository;
@@ -82,12 +68,7 @@ public class AuthService {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Age must be 18 or above");
         }
 
-        OtpEntry otpEntry = otpStore.get(phone);
-        long now = Instant.now().getEpochSecond();
-        if (otpEntry == null || otpEntry.expiresAtEpochSec < now) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "OTP expired. Request new OTP.");
-        }
-        if (!otpEntry.otp.equals(req.getOtp())) {
+        if (!DEMO_OTP.equals(req.getOtp())) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Invalid OTP");
         }
 
@@ -98,7 +79,6 @@ public class AuthService {
         user.setAge(req.getAge());
         user.setPasswordHash(passwordEncoder.encode(req.getPassword()));
         AppUser savedUser = appUserRepository.save(user);
-        otpStore.remove(phone);
 
         WalletAccount wallet = createWallet(savedUser);
         return new AuthBridgeResponse(savedUser.getId(), savedUser.getPhone(), wallet.getBalance(), true);
@@ -126,12 +106,7 @@ public class AuthService {
             throw new ResponseStatusException(HttpStatus.CONFLICT, "Phone already registered");
         }
 
-        String otp = String.valueOf(ThreadLocalRandom.current().nextInt(100000, 1000000));
-        long expiresAt = Instant.now().plusSeconds(300).getEpochSecond();
-        otpStore.put(phone, new OtpEntry(otp, expiresAt));
-
-        // Dev-mode OTP return. Replace with SMS provider in production.
-        return new RequestOtpResponse("OTP sent to phone", otp);
+        return new RequestOtpResponse("OTP sent to phone", DEMO_OTP);
     }
 
     private WalletAccount createWallet(AppUser user) {

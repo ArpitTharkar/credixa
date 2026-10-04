@@ -23,8 +23,6 @@ public class AddMoneyActivity extends AppCompatActivity {
 
         ImageButton btnBack = findViewById(R.id.buttonBack);
         btnBack.setOnClickListener(v -> {
-            Intent i = new Intent(this, WalletFunctionActivity.class);
-            startActivity(i);
             finish();
         });
 
@@ -33,6 +31,18 @@ public class AddMoneyActivity extends AppCompatActivity {
         editAmount = findViewById(R.id.editTextAddAmount);
         editAmount.setInputType(InputType.TYPE_CLASS_NUMBER);
         btnConfirm = findViewById(R.id.buttonConfirmAdd);
+
+        int[] chipIds = {R.id.chipAdd100, R.id.chipAdd500, R.id.chipAdd1000, R.id.chipAdd2000};
+        long[] chipAmounts = {100, 500, 1000, 2000};
+        for (int i = 0; i < chipIds.length; i++) {
+            final long amt = chipAmounts[i];
+            findViewById(chipIds[i]).setOnClickListener(v -> {
+                String cur = editAmount.getText().toString().trim();
+                long base = cur.isEmpty() ? 0 : Long.parseLong(cur);
+                editAmount.setText(String.valueOf(base + amt));
+                editAmount.setSelection(editAmount.getText().length());
+            });
+        }
 
         // Observe add money result message
         walletViewModel.addMoneyMessage.observe(this, msg -> {

@@ -21,8 +21,8 @@ android {
         applicationId = "com.arpit.myapplication"
         minSdk = 24
         targetSdk = 36
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = 4
+        versionName = "1.2"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -61,6 +61,7 @@ android {
             // Use live backend for debug builds too.
             buildConfigField("String", "SERVER_BASE_URL", "\"https://credixa-backend.onrender.com/api/\"")
         }
+
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
@@ -79,6 +80,7 @@ dependencies {
     implementation(libs.retrofit)
     implementation(libs.retrofit.converter.gson)
     implementation(libs.okhttp.logging)
+    implementation("com.tom-roush:pdfbox-android:2.0.27.0")
     implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.auth)
     testImplementation(libs.junit)

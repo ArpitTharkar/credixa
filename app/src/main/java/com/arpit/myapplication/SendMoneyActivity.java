@@ -30,8 +30,6 @@ public class SendMoneyActivity extends AppCompatActivity {
 
         ImageButton btnBack = findViewById(R.id.buttonBack);
         btnBack.setOnClickListener(v -> {
-            Intent i = new Intent(this, WalletFunctionActivity.class);
-            startActivity(i);
             finish();
         });
 

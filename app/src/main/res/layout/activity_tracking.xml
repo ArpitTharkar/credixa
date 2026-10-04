@@ -17,7 +17,7 @@
             android:layout_height="40dp"
             android:layout_marginBottom="12dp"
             android:background="?attr/selectableItemBackgroundBorderless"
-            android:src="@android:drawable/ic_menu_revert"
+            android:src="@drawable/ic_chevron_left"
             android:contentDescription="Back"
             android:tint="#FFFFFF" />
 
@@ -39,7 +39,7 @@
                 android:textStyle="bold"
                 android:layout_gravity="center_horizontal"
                 android:paddingBottom="12dp"
-                android:textColor="#6C4DFF"
+                android:textColor="#3B82E6"
                 android:fontFamily="sans-serif-medium" />
 
             <RadioGroup
@@ -75,7 +75,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="#E0E0E0"
+                android:background="#2E2E32"
                 android:layout_marginBottom="8dp" />
 
             <LinearLayout
